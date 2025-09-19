@@ -1,27 +1,27 @@
 package com.maicon.estruturadados;
 
+public class VetorObjetos {
 
-
-public class Vetor {
-    private String[] elementos;
+    private Object[] elementos;
     private int tamanho;
 
-    public Vetor(int capacidade) {
-        this.elementos = new String[capacidade];
+    public VetorObjetos(int capacidade) {
+        this.elementos = new Object[capacidade];
         this.tamanho = 0;
     }
 
-    public boolean adiciona(String elemento) {
+    public boolean adiciona(Object elemento) {
         this.aumentaCapacidade();
         if (this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = elemento;
-                this.tamanho++;
-               return true;
+            this.tamanho++;
+            return true;
         }
         return false;
     }
 
-    public boolean adiciona(int posicao, String elemento){
+
+    public boolean adiciona(int posicao, Object elemento){
         if(!(posicao >= 0 && posicao <= tamanho)) {
             throw new IllegalArgumentException("Posição inválida!");
         }
@@ -38,14 +38,14 @@ public class Vetor {
 
     private void aumentaCapacidade(){
         if(this.tamanho == this.elementos.length){
-            String[] elementosNovos = new String[this.elementos.length * 2];
+            Object[] elementosNovos = new String[this.elementos.length * 2];
             for (int i = 0; i < elementos.length; i++) {
                 elementosNovos[i] = this.elementos[i];
             }
             this.elementos = elementosNovos;
         }
     }
-    public String busca(int posicao){
+    public Object busca(int posicao){
 
         if(!(posicao >= 0 && posicao <= tamanho)) {
             throw new IllegalArgumentException("Posição inválida!");
@@ -53,7 +53,7 @@ public class Vetor {
         return this.elementos[posicao];
     }
 
-    public int busca(String elemento){
+    public int busca(Object elemento){
         for (int i = 0; i < this.tamanho; i++) {
             if(this.elementos[i].equals(elemento)){
                 return i;
@@ -93,5 +93,4 @@ public class Vetor {
         s.append("]");
         return s.toString();
     }
-
 }
