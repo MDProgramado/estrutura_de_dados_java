@@ -1,0 +1,20 @@
+package com.maicon.estruturadados.labs;
+
+import com.maicon.estruturadados.Lista;
+
+public class Exercicio04 {
+    public static void main(String[] args) {
+
+        Lista<String> lista = new Lista<>(5);
+
+        lista.adiciona("A");
+        lista.adiciona("B");
+        lista.adiciona("C");
+        lista.adiciona("D");
+        lista.adiciona("E");
+
+        System.out.println(lista.obtem(0));
+        System.out.println(lista.obtem(1));
+        System.out.println(lista.obtem(4));
+    }
+}
